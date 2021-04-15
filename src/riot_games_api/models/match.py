@@ -150,8 +150,8 @@ class ParticipantDto(BaseModel):
     spell2_id: int
     stats: ParticipantStatsDto
     timeline: ParticipantTimelineDto
-    highest_achieved_season_tier: str
-    masteries: List[MasteryDto]
+    highest_achieved_season_tier: Optional[str]
+    masteries: Optional[List[MasteryDto]]
 
 
 class TeamBansDto(BaseModel):

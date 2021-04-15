@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="riot-games-api",
-    version="1.0.2",
+    version="1.0.3",
     author="Kirill Shikhalev",
     author_email="esbraff@yandex.ru",
     description="Riot Games API wrapper for Python.",
