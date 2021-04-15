@@ -1,3 +1,5 @@
+from typing import List
+
 from .base import BaseModel
 
 
@@ -7,7 +9,7 @@ class GameCustomizationObject(BaseModel):
 
 
 class Perks(BaseModel):
-    perk_ids: list[int]
+    perk_ids: List[int]
     perk_style: int
     perk_sub_style: int
 
@@ -22,7 +24,7 @@ class CurrentGameParticipant(BaseModel):
     summoner_id: str
     spell1_id: int
     spell2_id: int
-    game_customization_objects: list[GameCustomizationObject]
+    game_customization_objects: List[GameCustomizationObject]
 
 
 class Observer(BaseModel):
@@ -43,7 +45,7 @@ class CurrentGameInfo(BaseModel):
     game_length: int
     platform_id: str
     game_mode: str
-    banned_champions: list[BannedChampion]
+    banned_champions: List[BannedChampion]
     game_queue_config_id: int
     observers: Observer
-    participants: list[CurrentGameParticipant]
+    participants: List[CurrentGameParticipant]

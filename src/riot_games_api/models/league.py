@@ -1,3 +1,5 @@
+from typing import List
+
 from .base import BaseModel
 
 
@@ -41,7 +43,7 @@ class LeagueItemDto(BaseModel):
 
 class LeagueListDto(BaseModel):
     league_id: str
-    entries: list[LeagueItemDto]
+    entries: List[LeagueItemDto]
     tier: str
     name: str
     queue: str

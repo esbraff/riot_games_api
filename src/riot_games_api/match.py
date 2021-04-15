@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 
 from .base import RiotGamesApiBase
 from .models.match import MatchDto, MatchlistDto, MatchTimelineDto
@@ -19,9 +19,9 @@ class MatchApiV4(RiotGamesApiBase):
             account_id: str,
             platform: Optional[str] = None,
             *,
-            champion: Optional[list[int]] = None,
-            queue: Optional[list[int]] = None,
-            season: Optional[list[int]] = None,
+            champion: Optional[List[int]] = None,
+            queue: Optional[List[int]] = None,
+            season: Optional[List[int]] = None,
             end_time: Optional[int] = None,
             begin_time: Optional[int] = None,
             end_index: Optional[int] = None,
@@ -54,7 +54,7 @@ class MatchApiV4(RiotGamesApiBase):
             self,
             tournament_code: str,
             platform: Optional[str] = None
-    ) -> list[int]:
+    ) -> List[int]:
         return self._request(f"/lol/match/v4/matches/by-tournament-code/{tournament_code}/ids", platform)
 
     def get_match_by_tournament_code(

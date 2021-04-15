@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Dict, List
 
 from .base import BaseModel
 
@@ -21,13 +21,13 @@ class ParticipantIdentityDto(BaseModel):
 
 class ParticipantTimelineDto(BaseModel):
     participant_id: int
-    creeps_per_min_deltas: dict[str, int]
-    xp_per_min_deltas: dict[str, int]
-    gold_per_min_deltas: dict[str, int]
-    cs_diff_per_min_deltas: Optional[dict[str, int]]
-    xp_diff_per_min_deltas: Optional[dict[str, int]]
-    damage_taken_per_min_deltas: dict[str, int]
-    damage_taken_diff_per_min_deltas: Optional[dict[str, int]]
+    creeps_per_min_deltas: Dict[str, int]
+    xp_per_min_deltas: Dict[str, int]
+    gold_per_min_deltas: Dict[str, int]
+    cs_diff_per_min_deltas: Optional[Dict[str, int]]
+    xp_diff_per_min_deltas: Optional[Dict[str, int]]
+    damage_taken_per_min_deltas: Dict[str, int]
+    damage_taken_diff_per_min_deltas: Optional[Dict[str, int]]
     role: str
     lane: str
 
@@ -151,7 +151,7 @@ class ParticipantDto(BaseModel):
     stats: ParticipantStatsDto
     timeline: ParticipantTimelineDto
     highest_achieved_season_tier: str
-    masteries: list[MasteryDto]
+    masteries: List[MasteryDto]
 
 
 class TeamBansDto(BaseModel):
@@ -175,7 +175,7 @@ class TeamStatsDto(BaseModel):
     vilemaw_kills: int
     rift_herald_kills: int
     dominion_victory_score: int
-    bans: list[TeamBansDto]
+    bans: List[TeamBansDto]
 
 
 class MatchDto(BaseModel):
@@ -189,9 +189,9 @@ class MatchDto(BaseModel):
     game_version: str
     game_mode: str
     game_type: str
-    teams: list[TeamStatsDto]
-    participants: list[ParticipantDto]
-    participant_identities: list[ParticipantIdentityDto]
+    teams: List[TeamStatsDto]
+    participants: List[ParticipantDto]
+    participant_identities: List[ParticipantIdentityDto]
 
 
 class MatchPositionDto(BaseModel):
@@ -220,7 +220,7 @@ class MatchEventDto(BaseModel):
     position: Optional[MatchPositionDto]
     killer_id: Optional[int]
     timestamp: int
-    assisting_participant_ids: Optional[list[int]]
+    assisting_participant_ids: Optional[List[int]]
     building_type: Optional[str]
     victim_id: Optional[int]
 
@@ -239,13 +239,13 @@ class MatchParticipantFrameDto(BaseModel):
 
 
 class MatchFrameDto(BaseModel):
-    participant_frames: dict[str, MatchParticipantFrameDto]
-    events: list[MatchEventDto]
+    participant_frames: Dict[str, MatchParticipantFrameDto]
+    events: List[MatchEventDto]
     timestamp: int
 
 
 class MatchTimelineDto(BaseModel):
-    frames: list[MatchFrameDto]
+    frames: List[MatchFrameDto]
     frame_interval: int
 
 
@@ -261,7 +261,7 @@ class MatchReferenceDto(BaseModel):
 
 
 class MatchlistDto(BaseModel):
-    matches: list[MatchReferenceDto]
+    matches: List[MatchReferenceDto]
     start_index: int
     end_index: int
     total_games: int

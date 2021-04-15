@@ -1,3 +1,5 @@
+from typing import List
+
 from .base import BaseModel
 
 
@@ -10,8 +12,8 @@ class UpdateDto(BaseModel):
     id: int
     author: str
     publish: bool
-    publish_locations: list[str]
-    translations: list[ContentDto]
+    publish_locations: List[str]
+    translations: List[ContentDto]
     created_at: str
     updated_at: str
 
@@ -20,17 +22,17 @@ class StatusDto(BaseModel):
     id: int
     maintenance_status: str
     incident_severity: str
-    titles: list[ContentDto]
-    updates: list[UpdateDto]
+    titles: List[ContentDto]
+    updates: List[UpdateDto]
     created_at: str
     archive_at: str
     updated_at: str
-    platforms: list[str]
+    platforms: List[str]
 
 
 class PlatformDataDto(BaseModel):
     id: str
     name: str
-    locales: list[str]
-    maintances: list[StatusDto]
-    incidents: list[StatusDto]
+    locales: List[str]
+    maintances: List[StatusDto]
+    incidents: List[StatusDto]

@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 
 from pydantic import parse_obj_as
 
@@ -47,10 +47,10 @@ class LeagueApiV4(RiotGamesApiBase):
             self,
             summoner_id: str,
             platform: Optional[str] = None
-    ) -> list[LeagueEntryDto]:
+    ) -> List[LeagueEntryDto]:
         data = self._request(f"/lol/league/v4/entries/by-summoner/{summoner_id}", platform)
 
-        return parse_obj_as(list[LeagueEntryDto], data)
+        return parse_obj_as(List[LeagueEntryDto], data)
 
     def get_entries(
             self,
@@ -58,7 +58,7 @@ class LeagueApiV4(RiotGamesApiBase):
             tier: str,
             division: str,
             platform: Optional[str] = None
-    ) -> list[LeagueEntryDto]:
+    ) -> List[LeagueEntryDto]:
         data = self._request(f"/lol/league/v4/entries/{queue}/{tier}/{division}", platform)
 
-        return parse_obj_as(list[LeagueEntryDto], data)
+        return parse_obj_as(List[LeagueEntryDto], data)

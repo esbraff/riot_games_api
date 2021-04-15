@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 
 from .base import BaseModel
 
@@ -18,7 +18,7 @@ class TeamDto(BaseModel):
     tier: int
     captain: str
     abbreviation: str
-    players: list[PlayerDto]
+    players: List[PlayerDto]
 
 
 class TournamentPhaseDto(BaseModel):
@@ -33,4 +33,4 @@ class TournamentDto(BaseModel):
     theme_id: int
     name_key: str
     name_key_secondary: str
-    schedule: list[TournamentPhaseDto]
+    schedule: List[TournamentPhaseDto]

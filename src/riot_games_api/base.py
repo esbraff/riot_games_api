@@ -1,5 +1,5 @@
 from requests import Session, RequestException
-from typing import Optional, Any
+from typing import Optional, Any, Dict
 from urllib.parse import urljoin
 
 from .exceptions import RiotGamesApiException
@@ -19,7 +19,7 @@ class RiotGamesApiBase:
             self,
             path: str,
             platform: Optional[str] = None,
-            params: Optional[dict[str, Any]] = None
+            params: Optional[Dict[str, Any]] = None
     ):
         try:
             headers = {

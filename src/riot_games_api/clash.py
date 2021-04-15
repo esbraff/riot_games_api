@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 
 from pydantic import parse_obj_as
 
@@ -11,10 +11,10 @@ class ClashApiV1(RiotGamesApiBase):
             self,
             summoner_id: str,
             platform: Optional[str] = None
-    ) -> list[PlayerDto]:
+    ) -> List[PlayerDto]:
         data = self._request(f"/lol/clash/v1/players/by-summoner/{summoner_id}", platform)
 
-        return parse_obj_as(list[PlayerDto], data)
+        return parse_obj_as(List[PlayerDto], data)
 
     def get_team(
             self,
@@ -28,10 +28,10 @@ class ClashApiV1(RiotGamesApiBase):
     def get_tournaments(
             self,
             platform: Optional[str] = None
-    ) -> list[TournamentDto]:
+    ) -> List[TournamentDto]:
         data = self._request(f"/lol/clash/v1/tournaments", platform)
 
-        return parse_obj_as(list[TournamentDto], data)
+        return parse_obj_as(List[TournamentDto], data)
 
     def get_tournament_by_team(
             self,

@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 
 from pydantic import parse_obj_as
 
@@ -11,7 +11,7 @@ class ChampionMasteryApiV4(RiotGamesApiBase):
             self,
             summoner_id: str,
             platform: Optional[str] = None
-    ) -> list[ChampionMasteryDto]:
+    ) -> List[ChampionMasteryDto]:
         data = self._request(f"/lol/champion-mastery/v4/champion-masteries/by-summoner/{summoner_id}", platform)
 
         return parse_obj_as(list[ChampionMasteryDto], data)
