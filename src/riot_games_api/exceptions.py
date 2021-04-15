@@ -1,0 +1,2 @@
+class RiotGamesApiException(Exception):
+    pass
